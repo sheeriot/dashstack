@@ -31,4 +31,7 @@ RUN mkdir /etc/service/nginx
 COPY nginx.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
 
+# Surveyor Static Files are mounted from a Docker Volume
+RUN mkdir -p /var/www/surveyor/static
+
 # end of file

@@ -8,30 +8,30 @@ export PATH="${PATH}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 cd $HOME || exit 2
 
 # test that authentication is set up, and set permissions as needed by us
-if [ ! -d /etc/nginx/authdata/nodered ] ; then
-	echo "The authdata directory is not set; refer to docker-compose script"
-	exit 3
-fi
+# if [ ! -d /etc/nginx/authdata/nodered ] ; then
+# 	echo "The authdata directory is not set; refer to docker-compose script"
+# 	exit 3
+# fi
 
 
-if [ ! -d /etc/nginx/authdata/influxdb ] ; then
-	echo "The authdata directory is not set; refer to docker-compose script"
-	exit 3
-fi
+# if [ ! -d /etc/nginx/authdata/influxdb ] ; then
+# 	echo "The authdata directory is not set; refer to docker-compose script"
+# 	exit 3
+# fi
 
-if [ ! -f /etc/nginx/authdata/nodered/.htpasswd ]; then
-	echo ".htpasswd file not found"
-	exit 3
-fi
+# if [ ! -f /etc/nginx/authdata/nodered/.htpasswd ]; then
+# 	echo ".htpasswd file not found"
+# 	exit 3
+# fi
 
 
-if [ ! -f /etc/nginx/authdata/influxdb/.htpasswd ]; then
-	echo ".htpasswd file not found"
-	exit 3
-fi
+# if [ ! -f /etc/nginx/authdata/influxdb/.htpasswd ]; then
+# 	echo ".htpasswd file not found"
+# 	exit 3
+# fi
 
-chown -R www-data $(find /etc/nginx/authdata -type d)
-chmod 700 $(find /etc/nginx/authdata -type d)
+# chown -R www-data $(find /etc/nginx/authdata -type d)
+# chmod 700 $(find /etc/nginx/authdata -type d)
 
 # check that we got the vars we need
 if [ -z "$CERTBOT_DOMAINS" ] || [ "$CERTBOT_DOMAINS" = "." ]; then
